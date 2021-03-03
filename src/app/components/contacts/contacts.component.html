@@ -1,0 +1,5 @@
+<div class="contacts container">
+    <button class="toggle" (click)='toggle()'>{{btn}}</button>
+    <app-log-in *ngIf='logIn'></app-log-in>
+    <app-create-account *ngIf='!logIn'></app-create-account>
+</div>

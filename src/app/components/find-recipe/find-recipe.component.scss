@@ -1,0 +1,45 @@
+// @import "../../variables/variables.scss";
+.findRecipe {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 90vh;
+    background-image: url(../../../assets/img/find-recipe.jpg);
+    background-size: cover;
+    &__settings {
+        position: absolute;
+        left: 0;
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+    }
+    &__btn {
+        padding: .5em .8em;
+    }
+    &__container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-around;
+        background-color: rgba($color: #fafafa, $alpha: 0.9);
+    }
+}
+
+@media (max-width:768px) {
+    .findRecipe {
+        height: max-content;
+        &__container {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__settings {
+            width: 60%;
+        }
+        &__cards {
+            margin: auto;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@import '../../../variables/variables.scss';
+.contacts {
+    &__log-off {
+        top: 5rem;
+    }
+    &__message {
+        color: $main-dark-color;
+        width: 50%;
+        margin-top: 3rem;
+    }
+}

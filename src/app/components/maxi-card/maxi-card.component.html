@@ -1,0 +1,50 @@
+<div class="maxi-card-container" *ngIf='loading===true;else loadingBlock' (click)='click()'>
+    <div class="error" *ngIf='localData.error.fullRecipe'>
+        {{localData.error.fullRecipe}}
+    </div>
+    <div class="maxi-card container" *ngIf='!localData.error.fullRecipe'>
+        <div class="maxi-card__image maxi-card__box" [style.backgroundImage]='"url("+recipe.image+")"'>
+            <button class="maxi-card__btn_favorite-recipe" (click)='addRecipeToFavorite(recipe)' [style.color]="favoriteRecipe?'lightcoral':'#fafafa'" *ngIf='localData.users.isUserConnected'>&#10084;</button>
+        </div>
+
+        <section class="maxi-card__content">
+            <header class="maxi-card__headind maxi-card__box">
+                <h3 *ngIf='!error' class="maxi-card__title">
+                    {{recipe.title| uppercase}}
+                </h3>
+
+            </header>
+            <div class="maxi-card__short-inf maxi-card__box">
+                <p>
+                    <fa-icon class="maxi-card__icon" [icon]='faClock'></fa-icon> {{recipe.readyInMinutes}} MIN
+                </p>
+                <p>
+                    <fa-icon class="maxi-card__icon" [icon]='faConciergeBell'></fa-icon> {{recipe.servings}} SERVES
+                </p>
+            </div>
+            <form class="maxi-card__ingredients maxi-card__box">
+                <h3 class="maxi-card__ingredients-heading"> Ingredients: </h3>
+                <ol *ngFor='let ingredient of recipe.extendedIngredients; let i=index'>
+                    <input class="maxi-card__checkbox" type="checkbox" id="{{ingredient.name}}">
+                    <span>{{i+1}}. </span>
+                    <label class="maxi-card__ingredient" for="{{ingredient.name}}" (click)='checkIngredient($event,ingredient.name)'>    {{ingredient.original}}</label>
+                </ol>
+
+                <button class="maxi-card__button btn" type="submit" (click)=localData.addToTheShoppingList(ingredients)>Add to the shopping List</button>
+            </form>
+            <div class="maxi-card__full-inf maxi-card__box">
+                <h3 class="maxi-card__ingredients-heading">Instructions:</h3>
+                <p [innerHTML]="recipe.instructions">
+                </p>
+            </div>
+        </section>
+    </div>
+    <app-shopping-list class="shopping-list"></app-shopping-list>
+</div>
+<ng-template class="maxi-card-container" #loadingBlock>
+    <div class="maxi-card container">
+        <div class="maxi-card__image maxi-card__box">
+        </div>
+        <h2>Loading ...</h2>
+    </div>
+</ng-template>

@@ -1,0 +1,11 @@
+<div class="findRecipe">
+    <div class="findRecipe__settings">
+        <app-settings></app-settings>
+    </div>
+    <div class='container findRecipe__container'>
+        <div class="error">{{error}}
+        </div>
+        <app-mini-card class="findRecipe__cards" title={{recipe.title}} image={{recipe.image}} *ngFor='let recipe of localData.complexSearch.recipes' [routerLink]="['/find-recipe',(recipe.id+'-'+recipe.title).split(' ').join('-')]">
+        </app-mini-card>
+    </div>
+</div>

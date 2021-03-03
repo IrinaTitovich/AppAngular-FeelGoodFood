@@ -1,0 +1,10 @@
+<div class="recipes">
+    <div class="recipes__container container">
+        <div class="card">
+            <a [routerLink]="['/recipes',type]" class="card__item" *ngFor='let type of types'>
+                <span class="card__meal-type">{{type.split('-').join(' ') | uppercase}}</span>
+                <span class="card__img" [ngStyle]="{ 'backgroundImage': 'url(../../assets/img/recipes/'+type+'.jpg)'}"></span>
+            </a>
+        </div>
+    </div>
+</div>

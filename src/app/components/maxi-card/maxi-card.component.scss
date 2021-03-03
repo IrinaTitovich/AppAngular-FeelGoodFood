@@ -1,0 +1,103 @@
+@import "../../variables/variables.scss";
+.maxi-card {
+    width: 100%;
+    background-color: lavender;
+    padding: 1em;
+    color: $main-dark-color;
+    &__box {
+        margin: 0.5rem;
+        padding: 1em;
+        background-color: #fafafa;
+    }
+    &__image {
+        width: 250px;
+        height: 250px;
+        margin: auto;
+        background-color: #ffe7b9;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+    &__title {}
+    &__icon {
+        margin-left: 2em;
+        color: #cca55d;
+    }
+    &__nutrition-value {
+        display: flex;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column-reverse;
+        background-color: #fff;
+    }
+    &__item-title {}
+    &__item-value {}
+    &__ingredients-heading {
+        font-size: 1.2rem;
+    }
+    &__button {
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        border-radius: 0px;
+        font-size: 1em;
+        padding: 0.3em 0.5em;
+    }
+    &__checkbox {
+        opacity: 0;
+        left: -9999;
+        width: 0;
+        height: 0;
+    }
+    &__ingredients {
+        position: relative;
+    }
+    &__ingredient {
+        line-height: 1.8em;
+        padding: 0.1em 0.2em;
+        // border: 1px solid $main-dark-color;
+        background-color: lavender;
+        margin: 0.1em;
+        cursor: pointer;
+    }
+    &__ingredients-heading {
+        margin: 1em;
+        text-align: left;
+    }
+    &__short-inf {
+        display: flex;
+        flex-direction: row;
+    }
+    &__full-inf {
+        display: flex;
+        flex-direction: column;
+    }
+    &__btn_favorite-recipe {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 2em;
+        background: transparent;
+        color: #fafafa;
+        border: none;
+        box-shadow: none;
+        text-shadow: 1px 1px 10px black;
+        outline: none;
+        transition: .2s;
+    }
+    &__btn_favorite-recipe:hover,
+    &__btn_favorite-recipe:focus {
+        transform: scale(1.2);
+    }
+}
+
+.maxi-card-container {
+    position: relative;
+}
+
+.shopping-list {
+    position: fixed;
+    right: 0;
+    top: 10vh;
+}

@@ -1,0 +1,28 @@
+<form class="form formCrAcc" action="" [formGroup]='formCreateAccount' (ngSubmit)='submitNewUser()'>
+    <h3 class="form__title">Create New Account</h3>
+    <div class="form__block">
+        <label class="form__label">Email</label>
+        <div class="form__validation">
+            <input #formCrAccEmail class="form__input input" type="text" placeholder="Email" formControlName='email'>
+            <div class="form__message">
+                <small class="" *ngIf="formCreateAccount.get('email').invalid&&formCreateAccount.get('email').touched&&!formCreateAccount.get('email').value">This field can`t be empty</small>
+                <small class="" *ngIf="formCreateAccount.get('email').invalid&&formCreateAccount.get('email').touched&&formCreateAccount.get('email').value">Enter correct email</small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form__block">
+        <label class="form__label" for='password'>password</label>
+        <div class="form__validation">
+            <input #formCrAccPassword class="form__input input" type="password" placeholder="Password" formControlName='password'>
+            <div class="form__message">
+                <small class="" *ngIf="formCreateAccount.get('password').invalid&&formCreateAccount.get('password').touched&&!formCreateAccount.get('password').value">This field can`t be empty</small>
+                <small class="" *ngIf="formCreateAccount.get('password').invalid&&formCreateAccount.get('password').touched&&formCreateAccount.get('password').value">Password is only characters {{formCreateAccount.get('password').errors.minlength.actualLength}} long. The password must contain at least six characters </small>
+            </div>
+        </div>
+    </div>
+    <button class="form__btn btn" [disabled]="formCreateAccount.invalid" type="submit">OK</button>
+    <p class="form__message" *ngIf='!error'>{{message}}</p>
+    <div *ngIf='error' class="error">{{error}}</div>
+</form>

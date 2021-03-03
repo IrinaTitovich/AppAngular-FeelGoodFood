@@ -1,0 +1,89 @@
+@import "../../variables/variables.scss";
+.form {
+    color: $main-dark-color;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    &__title {
+        margin-top: 1em;
+        margin-bottom: 2em;
+    }
+    &__block {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin: 1em 0 auto;
+    }
+    &__label {
+        padding: 1em 0;
+        display: flex;
+        width: 25%;
+        text-transform: uppercase;
+    }
+    &__input {
+        padding: 0.8em 2em;
+    }
+    &__validation {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+    }
+    &__message {
+        height: 1em;
+        color: rgb(192, 51, 51);
+    }
+    &__btn {
+        width: 30%;
+        margin-top: 2em;
+    }
+    &__btn:disabled {
+        background-color: #ccc;
+        color: #fafafa;
+        cursor: auto;
+        box-shadow: none;
+    }
+}
+
+.form__input {
+    border: 1px solid $main-dark-color;
+    &.ng-invalid.ng-touched {
+        border: 1px solid rgb(180, 80, 80);
+        box-shadow: 1px 1px 5px rgb(180, 80, 80);
+    }
+    &.ng-valid.ng-touched {
+        border: 1px solid rgb(19, 156, 26);
+        box-shadow: 1px 1px 5px rgb(19, 156, 26);
+    }
+    &.ng-untouched {
+        border: 1px solid #ccc;
+        box-shadow: none;
+    }
+}
+
+.toggle {
+    position: absolute;
+    right: 0;
+    top: 2em;
+    font-weight: bold;
+    font-family: inherit;
+    background-color: #fafafa;
+    color: $main-dark-color;
+    padding: 0.3rem 1rem;
+    border: none;
+    box-shadow: 1px 1px 5px $main-dark-color;
+    outline: none;
+    text-transform: uppercase;
+    transition: .2s;
+}
+
+.toggle:hover,
+.toggle:focus {
+    background-color: $main-dark-color;
+    color: #fafafa;
+    cursor: pointer;
+}
+
+.contacts {
+    position: relative
+}

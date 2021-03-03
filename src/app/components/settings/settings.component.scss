@@ -1,0 +1,124 @@
+@import "../../variables/variables.scss";
+.settings {
+    color: $main-dark-color;
+    width: 100%;
+    min-height: 90vh;
+    background-color: lavender;
+    box-shadow: 1px 1px 5px $main-dark-color;
+    &__search {
+        display: flex;
+        align-items: center;
+    }
+    &__input {
+        width: 100%;
+        border: none;
+        box-shadow: 1px 1px 5px $main-dark-color;
+        background-color: lavender;
+        padding: 0.5em 1em;
+        height: 30px;
+        text-transform: uppercase;
+        font-size: 1.0em;
+        color: $main-dark-color;
+    }
+    &__input:focus {
+        background-color: #fafafa;
+    }
+    &__header {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row-reverse;
+    }
+    &__filter {
+        margin: 0.2rem;
+        padding: 0.8em;
+        background-color: #fafafa;
+    }
+    &__title {
+        font-size: 1.3rem;
+        padding: 0.2em;
+        text-align: center;
+    }
+    &__filter-name {
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    &__btns {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__btn {
+        padding: .5em .8em;
+        border-radius: 1px;
+    }
+    &__btn_skip {
+        display: block;
+        margin-top: 0.2em;
+        box-shadow: none;
+        padding: 0.1em 0.3em;
+        opacity: 0.5;
+        font-size: 0.9em;
+        border-radius: 1px;
+        border: 1px solid #c9c9c9;
+    }
+    &__btn_arrow {
+        margin: .1em .1em;
+        padding: .2em .5em;
+    }
+    &__hidden {
+        left: 0;
+        width: 30px;
+        height: 90vh;
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        background-color: lavender;
+        box-shadow: 1px 1px 5px $main-dark-color;
+        cursor: pointer;
+    }
+    &__hidden-title {
+        writing-mode: vertical-rl;
+        color: $main-dark-color;
+        font-size: 1.5em;
+        padding-top: 1em;
+    }
+}
+
+.inline-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    &__items {
+        font-size: 1em;
+        margin: 0.2em 0.2em;
+        padding: 0.1rem 0.3rem;
+        border: 1px solid lavender;
+        box-shadow: 1px 1px 1px lavender;
+        background-color: lavender;
+        cursor: pointer;
+    }
+}
+
+.active {
+    background-color: lightcoral;
+}
+
+.inline-filter__items>.checkbox-btn:checked {
+    background-color: lightcoral;
+}
+
+.radio-btn,
+.checkbox-btn {
+    position: absolute;
+    left: -1000px;
+    top: -1000px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    z-index: -1;
+}
+
+@media all and (max-width:1200px) {
+    .settings {}
+}

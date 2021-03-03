@@ -1,0 +1,125 @@
+@import "../../variables/variables.scss";
+.shopping-list {
+    color: $main-dark-color;
+    width: 100%;
+    min-height: 50vh;
+    background-color: lavender;
+    box-shadow: 1px 1px 5px $main-dark-color;
+    &__header {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row-reverse;
+        margin-bottom: 1em;
+    }
+    &__filter {
+        margin: 0.2rem;
+        padding: 0.8em;
+        background-color: #fafafa;
+    }
+    &__title {
+        font-size: 1.3rem;
+        padding: 0.2em;
+        text-align: center;
+    }
+    &__filter-name {
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    &__small-btn {
+        padding: 0 0.1em;
+        font-size: 1.0em;
+        border: none;
+        background-color: lavender;
+    }
+    &__small-btn:hover,
+    &__small-btn:focus {
+        color: rgb(163, 64, 64);
+        outline: none;
+        transform: scale(1.2);
+    }
+    &__small-btn_cross:hover,
+    &__small-btn_cross:focus {
+        color: rgb(56, 126, 56);
+    }
+    &__btn_save {
+        margin-top: 1em;
+        padding: .3em .4em;
+        font-size: 1.0em;
+        border-radius: 1px;
+    }
+    &__btn_arrow {
+        margin: .1em .1em;
+        padding: .2em .5em;
+    }
+    &__hidden {
+        right: 0;
+        width: 30px;
+        height: 90vh;
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        background-color: lavender;
+        box-shadow: 1px 1px 5px $main-dark-color;
+        cursor: pointer;
+    }
+    &__hidden-title {
+        writing-mode: vertical-rl;
+        color: $main-dark-color;
+        font-size: 1.5em;
+        padding-top: 1em;
+    }
+    &__box {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__no-user {
+        display: flex;
+        flex-direction: column;
+    }
+    &__btn_log-in {
+        padding: 0.1em 0.2em;
+        font-size: 1em;
+        border-radius: 0px;
+    }
+    &__message {
+        color: rgb(185, 39, 39);
+    }
+}
+
+.inline-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    &__items {
+        margin: 0.2em 0.2em;
+        padding: 0.3rem;
+        border: 1px solid lavender;
+        box-shadow: 1px 1px 1px lavender;
+        background-color: lavender;
+        cursor: pointer;
+    }
+}
+
+.active {
+    background-color: lightcoral;
+}
+
+.inline-filter__items>.checkbox-btn:checked {
+    background-color: lightcoral;
+}
+
+.radio-btn,
+.checkbox-btn {
+    position: absolute;
+    left: -1000px;
+    top: -1000px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    z-index: -1;
+}
+
+@media all and (max-width:1200px) {
+    .settings {}
+}

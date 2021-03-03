@@ -1,0 +1,61 @@
+@import '../../../variables/variables.scss';
+.meal-type-cards {
+    width: 100%;
+    height: 90vh;
+    background-color: lemonchiffon;
+    background-position: center;
+    background-size: cover;
+    &__container {
+        width: 100%;
+        height: 100%;
+    }
+    &__name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: none;
+        height: 15%;
+    }
+    &__box {
+        box-shadow: 2px 3px 15px $main-dark-color;
+        background-color: #fafafa;
+        width: 100%;
+        height: 85%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-around;
+    }
+    &__item {
+        background-color: khaki;
+        width: 30%;
+        height: 40%;
+    }
+}
+
+.item {
+    box-shadow: 1px 1px 15px $main-dark-color;
+    color: $main-dark-color;
+    text-transform: uppercase;
+    &__name {
+        background-color: #fafafa;
+        width: 100%;
+        height: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    &__image {
+        display: block;
+        width: 100%;
+        height: 75%;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+.breadcrumbs,
+.reload {
+    height: 3em;
+}

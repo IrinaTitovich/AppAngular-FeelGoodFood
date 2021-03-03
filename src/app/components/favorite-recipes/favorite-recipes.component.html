@@ -1,0 +1,23 @@
+<div class="favorite-recipes">
+    <div class=" container favorite-recipes__space" *ngIf='localData.users.isUserConnected; else logIn'>
+        <div class="favorite-recipes__no-recipes" *ngIf="localData.users.connectedUser.hasOwnProperty('favoriteRecipes')">
+            <div *ngIf="localData.users.connectedUser.favoriteRecipes.size===0">
+                There is no favorite recipes.
+                <br>
+                <button class=" btn favorite-recipes__btn " [routerLink]="[ '/recipes'] ">Let`s find some </button>
+            </div>
+
+        </div>
+        <div class="favorite-recipes__container" *ngIf="localData.users.connectedUser.favoriteRecipes.size>0">
+            <app-mini-card class="favorite-recipes__recipe " title={{recipe.title}} image={{recipe.image}} *ngFor=' let recipe of localData.users.connectedUser.favoriteRecipes ' (click)='localData.searchById(recipe.id) ' [routerLink]="[ '/find-recipe',(recipe.id+ '- '+recipe.title).split( ' ').join( '- ')] "></app-mini-card>
+        </div>
+
+    </div>
+    <ng-template #logIn>
+        <div class='favorite-recipes__log-in'>
+            <p>Please,
+                <button class="btn favorite-recipes__btn " [routerLink]="[ '/contacts'] ">Log in</button>
+            </p>
+        </div>
+    </ng-template>
+</div>

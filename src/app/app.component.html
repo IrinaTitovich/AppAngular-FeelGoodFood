@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <div class="container navbar__container">
+        <a href="/"><img class="navbar__logo" src="../assets/img/fgf.png" alt=""></a>
+        <ul class="navbar__links">
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="navbar__link"> <a class="link" [routerLink]="['/']">Home</a> </li>
+            <li routerLinkActive="active" class="navbar__link"> <a class="link" [routerLink]="['/recipes']">Recipes</a> </li>
+            <li routerLinkActive="active" class="navbar__link"> <a class="link" [routerLink]="['/find-recipe']">Find Recipe</a> </li>
+            <li routerLinkActive="active" class="navbar__link"> <a class="link" [routerLink]="['/favorite-recipes']">Favorite Recipes</a> </li>
+            <li routerLinkActive="active" class="navbar__link"> <a class="link" [routerLink]="['/contacts']">Log in</a> </li>
+        </ul>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>

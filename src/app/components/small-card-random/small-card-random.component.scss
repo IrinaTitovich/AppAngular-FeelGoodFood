@@ -1,0 +1,60 @@
+@import "../../variables/variables.scss";
+.small-card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 200px;
+    max-width: 300px;
+    box-shadow: 1px 1px 5px #000;
+    &__image {
+        filter: brightness(120%);
+        filter: saturate(110%);
+        filter: contrast(1.1);
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    &__header {
+        min-height: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5em;
+        color: #fff;
+        background-color: $main-dark-color;
+    }
+    &__button {
+        border: none;
+        min-height: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.0em;
+        color: #fff;
+        background-color: $main-dark-color;
+        transition: 0.2s;
+    }
+    &__button:hover {
+        background-color: #fafafa;
+        color: $main-dark-color;
+        cursor: pointer;
+    }
+    &__title {
+        text-align: center;
+    }
+    &__block {
+        background-color: grey;
+        min-width: 100%;
+        min-height: 200px;
+    }
+    &__image-container {
+        display: flex;
+        position: relative;
+    }
+    &__mini-btn {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}

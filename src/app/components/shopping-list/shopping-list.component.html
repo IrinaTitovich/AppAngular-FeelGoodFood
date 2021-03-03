@@ -1,0 +1,30 @@
+<section class="shopping-list" *ngIf='showShoppingList === true; else shoppingListHidden'>
+    <header class="shopping-list__header">
+        <button class="btn shopping-list__btn_arrow" type="button" (click)='showShoppingList=false'>&gt;</button>
+        <h5 class="shopping-list__title">Shopping list </h5>
+    </header>
+    <div>
+        <div class="shopping-list__box" *ngFor='let ingredient of localData.shoppingList.ingredients; let i=index'>
+            <label class="shopping-list__item">
+                <span>{{i+1}}. </span>
+                <span>{{ingredient}}</span>
+            </label>
+            <div>
+                <button class="shopping-list__small-btn shopping-list__small-btn_cross" (click)='localData.addIngredientToDeleted($event)'>	&#10004;</button>
+                <button class="shopping-list__small-btn" (click)='localData.deleteIngredient($event)'>&#10008;</button>
+            </div>
+        </div>
+    </div>
+    <div class="shopping-list__no-user" *ngIf='!localData.users.isUserConnected'>
+        <small class="shopping-list__message">Please, log in</small>
+        <button class="btn shopping-list__btn_log-in" [routerLink]="['/contacts']">log in</button>
+    </div>
+    <button *ngIf='localData.users.isUserConnected' class="btn shopping-list__btn_save" (click)='localData.saveShoppingList()'>Save shopping list</button>
+
+</section>
+
+<ng-template #shoppingListHidden>
+    <div class="shopping-list__hidden">
+        <span class="shopping-list__hidden-title" (click)='showShoppingList=true'>Shopping-list</span>
+    </div>
+</ng-template>

@@ -1,0 +1,24 @@
+<div *ngIf='!localData.randomRecipes.completed; else loadingBlock'>
+    <div class="small-card" *ngFor='let recipe of localData.randomRecipes.recipes' (click)='localData.searchById(recipe.id)' [routerLink]="['/find-recipe',(recipe.id+'-'+recipe.title).split(' ').join('-')]">
+        <header class="small-card__header">
+            <span class="small-card__title">{{recipe.title}}</span>
+        </header>
+        <div class="small-card__image-container">
+            <img class="small-card__image" src={{recipe.image}} alt="">
+            <!-- <button class="small-card__mini-btn">&#8596;</button> -->
+        </div>
+
+        <button class='small-card__button' (click)='localData.getRandomRecipe()'>Refresh</button>
+    </div>
+</div>
+<ng-template #loadingBlock>
+    <div class="small-card">
+        <header class="small-card__header">
+
+            <span class="small-card__title">Loading...</span>
+        </header>
+        <div class="error" *ngIf='error'>{{error}}</div>
+        <img class=" small-card__block " *ngIf='!error'>
+        <button class='small-card__button' (click)='localData.getRandomRecipe()'>Refresh</button>
+    </div>
+</ng-template>

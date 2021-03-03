@@ -1,0 +1,13 @@
+<div class="admin">
+    <div class="admin__container container">
+        <div *ngFor='let user of localData.users.users;let i=index'>
+            <p> {{i+1}}. {{user.email}}</p>
+            <p>username : {{user.username}}</p>
+            <p>password : {{user.password}}</p>
+            <p>hash :{{user.hash}}</p>
+            <p *ngIf="user.hasOwnProperty('favoriteRecipes')">hash :{{user.favoriteRecipes}}</p>
+            <p *ngIf="user.hasOwnProperty('shoppingList')">hash :{{user.shoppingList}}</p>
+        </div>
+    </div>
+
+</div>

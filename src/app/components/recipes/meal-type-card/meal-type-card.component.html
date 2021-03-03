@@ -1,0 +1,15 @@
+<div class="meal-type-cards" [style.background-image]="'url('+'../../../assets/img/recipes/'+backgroundImg+'.jpg)'">
+    <div class=" container meal-type-cards__container">
+        <header class="meal-type-cards__name">
+            <button class="btn breadcrumbs meal-type-cards__btn" [routerLink]="['/recipes']">&lt; Recipes</button>
+            <button class="btn reload" (click)='getMoreRecipes()'>	&#8635; reload recipes</button>
+        </header>
+        <section class="meal-type-cards__box">
+            <p class="error" *ngIf='error' [style.textAlign]='center'>{{error}}</p>
+            <a class="meal-type-cards__item item" [routerLink]="['/find-recipe',(recipe.id+'-'+recipe.title).split(' ').join('-')]" (click)='localData.searchById(recipe.id)' *ngFor='let recipe of recipes'>
+                <span class="item__name">{{recipe.title}}</span>
+                <span class="item__image" [style.background-image]="'url('+recipe.image+')'"></span>
+            </a>
+        </section>
+    </div>
+</div>

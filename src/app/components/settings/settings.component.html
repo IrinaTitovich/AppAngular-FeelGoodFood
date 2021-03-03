@@ -1,0 +1,50 @@
+<section class="settings" *ngIf='showSettings === true; else settingsHidden'>
+    <header class="settings__header">
+        <button class="btn settings__btn_arrow" type="button" (click)='showSettings=false'>&lt;</button>
+        <h5 class="settings__title">Filter your search</h5>
+    </header>
+    <div class="settings__filter">
+        <div class="settings__search">
+            <input class="settings__input" name="search" placeholder="something tasty..." (keyup)='valueToService($event)'>
+        </div>
+    </div>
+    <div class="settings__filter">
+        <h6 class="settings__filter-name">Cuisine</h6>
+        <div class="settings__cuisine inline-filter">
+            <label class="inline-filter__items" for="cuisine" *ngFor='let cuisine of localData.settings.cuisine' (click)='makeActiveRadio($event)'>
+                <input class="radio-btn" type="radio" name="cuisine"> {{cuisine| uppercase}}</label>
+        </div>
+    </div>
+    <div class="settings__filter">
+        <h6 class="settings__filter-name">Diet</h6>
+        <div class="settings__diet inline-filter">
+            <label class="inline-filter__items" for="diet" *ngFor='let diet of localData.settings.diet ' (click)='makeActiveRadio($event)'>
+                <input class="radio-btn" type="radio" name="diet">{{diet.split('-').join(' ') | uppercase}}</label>
+        </div>
+    </div>
+    <div class="settings__filter">
+        <h6 class="settings__filter-name">Intolerance</h6>
+        <div class="settings__intolerance inline-filter">
+            <label class="inline-filter__items" for='intolerance' *ngFor='let intolerance of localData.settings.intolerance' (click)='makeActiveCheckbox($event)'>
+                <input class="checkbox-btn" type="checkbox" name="intolerance" id=""> {{intolerance | uppercase}}
+            </label>
+        </div>
+    </div>
+    <div class="settings__filter">
+        <h6 class="settings__filter-name">Type</h6>
+        <div class="settings__type inline-filter">
+            <label class="inline-filter__items" for="type" *ngFor='let type of localData.settings.type' (click)='makeActiveRadio($event)'>
+                <input #inputType class="radio-btn" type="radio" name="type" > {{type.split('-').join(' ') | uppercase}}</label>
+        </div>
+
+    </div>
+    <div class="settings__btns">
+        <button class="btn settings__btn" (click)='localData.getRecipesBySettingsChecked()'>Search</button>
+    </div>
+</section>
+
+<ng-template #settingsHidden>
+    <div class="settings__hidden">
+        <span class="settings__hidden-title" (click)='showSettings=true'>Settings</span>
+    </div>
+</ng-template>

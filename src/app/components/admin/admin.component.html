@@ -1,0 +1,28 @@
+<form class="form" action="" *ngIf='admin.toggle===false;else connected'>
+    <h3 class="form__title">Log In</h3>
+    <div class="form__block">
+        <label class="form__label" for='email'>Email</label>
+        <div class="form__validation">
+            <input class="form__input input" type="text" placeholder="Email" #formEmail (keyup)='setEmail($event)'>
+            <div class="form__message">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form__block">
+        <label class="form__label" for='password'>password</label>
+        <div class="form__validation">
+            <input #formPassword class="form__input input" type="password" placeholder="Password" (keyup)='setPassword($event)'>
+            <div class="form__message">
+            </div>
+        </div>
+    </div>
+
+    <button class="form__btn btn" type="submit" (click)='isAdmin()'>OK</button>
+</form>
+<ng-template class="contacts__information container" #connected>
+    <h3 class="contacts__message container">Your email {{admin.email}} is connected </h3>
+    <app-information>
+    </app-information>
+</ng-template>
